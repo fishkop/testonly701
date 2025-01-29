@@ -6,7 +6,8 @@
 #define LED_PIN 2
 
 typedef struct struct_message {
-    bool buttonState;
+    bool buttonState01;
+    bool buttonState02;
 } struct_message;
 
 struct_message myData;
