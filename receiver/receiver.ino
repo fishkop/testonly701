@@ -14,10 +14,10 @@ struct_message myData;
 
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
     memcpy(&myData, incomingData, sizeof(myData));
-    Serial.print("Button state: ");
-    Serial.println(myData.buttonState);
-
-    digitalWrite(LED_PIN, myData.buttonState ? HIGH : LOW);
+    Serial.print("Button state 01: ");
+    Serial.println(myData.buttonState01);  // Will print 0 or 1
+    Serial.print("Button state 02: ");
+    Serial.println(myData.buttonState02);  // Will print 0 or 1
 }
 
 void setup() {
