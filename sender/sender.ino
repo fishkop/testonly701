@@ -10,12 +10,13 @@
 
 
 #define BUTTON_PIN 0
+#define iLED 5         // GPIO 5 für Builtin-LED
+
 
 typedef struct struct_message {
     bool buttonState01;
     bool buttonState02;
 } struct_message;
-
 
 
 struct_message myData;
@@ -30,7 +31,8 @@ void setup() {
     Serial.begin(115200);
 
     pinMode(BUTTON_PIN, INPUT_PULLUP);
-
+    pinMode(iLED, OUTPUT);
+    
     myData.buttonState02 = false;
 
     delay(2000);
@@ -83,6 +85,9 @@ void loop() {
     } else {
         Serial.println("Error sending the data");
     }
-
+    digitalWrite(iLED, HIGH);  // LED on
     delay(2000);
+    digitalWrite(iLED, LOW);   // LED off
+    delay(2000);
+
 }
